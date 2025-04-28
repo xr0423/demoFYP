@@ -1,0 +1,113 @@
+@import "../../style.scss";
+
+.login {
+  @include themify($themes) {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      align-items: center;
+      text-align: center;
+      h1 {
+        font-size: 30px;
+        color: themed("btn");
+        margin-bottom: 20px;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid themed("border");
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        color: themed("textColor");
+        background-color: themed("bgSoft");
+      }
+      input[type="password"] {
+        padding: 10px;
+        border-radius: 5px;
+        width: 93%;
+        border: 1px solid themed("border");
+        background-color: themed("bg");
+      }
+      
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .error-message {
+        font-size: 12px;
+        color: red; /* Set error message to red */
+        text-align: left;
+        margin-top: -8px;
+        margin-bottom: -8px;
+      }
+      .loginbtn {
+        padding: 10px;
+        background-color: themed("btn");
+        color: themed("bg");
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      .register-link {
+        text-align: center;
+        margin-top: 20px;
+        color: themed("btn");
+        .register-text {
+          color: themed("textColor");
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
+  @include tablet {
+    form {
+      width: 80%;
+      input {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+
+  }
+
+  @include mobile {
+    form {
+      width: 100%;
+      
+      input {
+        font-size: 12px;
+        padding: 6px;
+      }
+      input[type="password"] {
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 6px;
+      }
+    }
+  }
+}

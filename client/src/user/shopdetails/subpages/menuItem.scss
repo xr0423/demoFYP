@@ -1,0 +1,113 @@
+.menu-item-container {
+    background-color: #f5ebe1;
+    padding: 20px;
+  
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+  
+      button {
+        margin: 0 10px;
+        background-color: #6B4E2F;
+        color: white;
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #5a4026;
+        }
+      }
+    }
+    
+    .category-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #6B4E2F;
+        text-align: left;
+        margin: 20px 0; 
+    }
+    .menu-items-wrapper {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); // Fit items consistently
+      grid-gap: 10px; //help me it wont change the gap
+      justify-items: center;
+    }
+  
+    .menu-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      background-color: transparent; // Remove background color to avoid card look
+      margin: 0;
+      padding: 0; 
+      box-shadow: none; 
+      border-radius: 0; 
+      overflow: visible;       
+  
+      .menu-card-content {
+        width: 250px;
+        height: 370px; //for fixed size
+        padding: 0; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: transparent; // Transparent background to avoid card look
+        
+        .item-name {
+          font-weight: bold;
+          font-size: 1.2rem;
+          color: #333;
+          margin-bottom: 8px;
+        }
+  
+        .price-section {
+          margin-top: 10px;
+  
+          .original-price {
+            color: gray;
+            text-decoration: line-through;
+          }
+        }
+  
+        .dietary-info {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+  
+          .dietary-tags {
+            display: flex;
+            gap: 5px;
+  
+            .dietary-tag {
+              background-color: #e0d6cf;
+              padding: 2px 6px;
+              border-radius: 4px;
+              font-size: 0.8rem;
+              color: #6B4E2F;
+            }
+          }
+        }
+      }
+    }
+  
+    // Responsive adjustments
+    @media (max-width: 768px) { // Tablet
+      .menu-items-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      }
+    }
+  
+    @media (max-width: 480px) { // Mobile
+      .menu-items-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      }
+    }
+  }
+  

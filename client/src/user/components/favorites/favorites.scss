@@ -1,0 +1,234 @@
+@import "../../../style.scss";
+
+.favorites {
+    @include themify($themes) {
+    padding: 20px;
+    background-color: themed("bgSoft");
+    min-height: 100vh;
+
+    .user-fav-tabs {
+        .MuiTab-root {
+            color: #6f4a13; // Brown color for unselected tabs
+        }
+    
+        .Mui-selected {
+            color: #6f4a12; // Darker brown for selected tab
+            font-weight: bold; // Make the selected tab bold
+        }
+    
+        .MuiTabs-indicator {
+            background-color: #6f4a12; // Brown color for the underline indicator
+        }
+    }
+
+    .page-title {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+    }
+
+    .favorites-container {
+        width: 100%;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .post-favorite {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: themed("bgSoft");
+        }
+    }
+    
+
+    .shop-favorite {
+        background-color: #f5ebe1;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0; // Light grey border for distinction
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        max-width: 260px;
+        min-height: 400px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    
+        .shop-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: #e0e0e0;
+        }
+    
+        .bookmark-icon {
+            color: #8B4513;
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            cursor: pointer;
+        }
+    
+        .shop-details {
+            text-align: center;
+            width: 100%;
+    
+            .shop-name {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #3e2723;
+                margin: 8px 0;
+            }
+    
+            .shop-type {
+                font-size: 1rem;
+                color: #5d4037;
+            }
+    
+            .shop-location {
+                font-size: 0.9rem;
+                color: #5d4037;
+                margin: 4px 0;
+            }
+    
+            .rating-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 8px;
+    
+                .MuiRating-root {
+                    font-size: 1.2rem;
+                }
+    
+                .rating-text {
+                    margin-left: 6px;
+                    font-size: 0.9rem;
+                    color: #5d4037;
+                }
+            }
+        }
+    
+        // Responsive styling for smaller screens
+        @media (max-width: 600px) {
+            max-width: 100%;
+            padding: 15px;
+            .shop-image {
+                height: 150px;
+            }
+        }
+    }
+    
+    .article-favorite {
+        background-color: #fcf9f5;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0; // Light grey border for distinction
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        max-width: 300px; // Control width for a card-like appearance
+        margin-top: 30px;
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+            .author-pic {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+    
+            .author-name {
+                font-size: 0.9rem;
+                font-weight: bold;
+                color: #333;
+            }
+        }
+    
+        .title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    
+        .content {
+            font-size: 0.9rem;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Show 2 lines before truncating */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    
+        .bookmark-icon {
+            color: #8B4513;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    
+        // Ensure the layout adapts responsively
+        @media (max-width: 600px) {
+            max-width: 100%; // Full width on smaller screens
+        }
+    }
+    
+
+    /* Empty state message */
+    .empty-state {
+        text-align: center;
+        margin-top: 20px;
+        color: #888;
+        font-size: 1rem;
+    }
+
+    /* Bookmark icon at the top right */
+    .bookmark-icon {
+        color: #8B4513; // Brown color
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 960px) {
+        .post-favorite, .shop-favorite, .article-favorite {
+            margin-bottom: 10px;
+        }
+
+        .shop-favorite .shop-image {
+            height: 150px;
+        }
+    }
+}
+}

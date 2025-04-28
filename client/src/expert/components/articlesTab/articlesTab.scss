@@ -1,0 +1,130 @@
+@import "../../../style.scss";
+
+.articlestab {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header-actions {
+      display: flex;
+      gap: 20px; // Adds space between the dropdown and the button
+      align-items: center;
+
+      .dropdown-wrapper {
+        width: 220px; // Matches the size of the input field
+        position: relative;
+
+        .MuiSelect-select {
+          padding: 8px 12px; // Ensures text is not cut off
+          font-size: 14px;
+          color: #5f3615; // Theme color
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; // Adds ellipsis for long text
+        }
+
+        .MuiInputLabel-root {
+          color: #6f4a12;
+          font-size: 14px;
+        }
+
+        .MuiMenuItem-root {
+          font-size: 14px;
+          color: #5f3615;
+          &:hover {
+            background-color: #f4e4d6; // Matches the theme
+          }
+        }
+
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #ccc;
+          &:hover {
+            border-color: #8b6324; // Theme color on hover
+          }
+        }
+      }
+    }
+
+    .tab2 {
+      display: flex;
+      justify-content: flex-start; // Aligns tabs and dropdown to the left
+      align-items: center; // Ensures vertical alignment
+      width: 100%;
+      max-width: 800px; // Adjust as needed for better alignment
+      margin-bottom: 20px;
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #6f4a12;
+        transition: color 0.3s ease, background-color 0.3s ease;
+
+        &.active {
+          font-weight: bold;
+          color: #5f3615;
+          border-bottom: 2px solid #5f3615;
+        }
+
+        &:not(.active):hover {
+          color: #5f3615;
+          background-color: #d2a679;
+          border-radius: 4px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .topic-dropdown {
+        margin-left: 20px; // Adds space between the tabs and dropdown
+        padding: 8px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #6f4a12;
+        outline: none;
+
+        &:hover {
+          border-color: #5f3615;
+        }
+
+        &:focus {
+          border-color: #5f3615;
+          box-shadow: 0 0 5px rgba(95, 54, 21, 0.5);
+        }
+
+        option {
+          color: #333;
+          background-color: #fff;
+        }
+      }
+    }
+
+    .selectcontainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 2000px;
+      margin: 0 auto;
+
+      @include themify($themes) {
+        background-color: themed("bg");
+        border-radius: 15px;
+        padding: 20px;
+      }
+    }
+  }
+}

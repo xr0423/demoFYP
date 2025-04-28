@@ -1,0 +1,334 @@
+@import "../../style.scss";
+
+.user-shop-events {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: themed("bgSoft");
+    border-radius: 12px;
+
+    h2,
+    h3 {
+      font-size: 2rem;
+      color: themed("textColor");
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .type-date-filter {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+
+      .MuiFormControl-root,
+      .MuiTextField-root {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .MuiTextField-root {
+        margin-left: 10px;
+      }
+    }
+
+    .resetBtn {
+      color: white;
+      background-color: themed("btn");
+
+      &:hover {
+        background-color: darken(themed("logo"), 10%);
+      }
+    }
+
+    /* Event Container for Cards */
+    .event-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 20px;
+      justify-items: stretch;
+      align-items: stretch;
+
+      .event-item {
+        position: relative;
+        background-color: #f5ebe1;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        border: 5px solid themed("btn");
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 390px;
+        margin: 20px;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-detail {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+
+          svg {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: themed("textColor");
+          }
+
+          div {
+            font-size: 1rem;
+            color: themed("textColor");
+          }
+
+          .event-image {
+            width: 100%;
+            height: 300px;
+            background: themed("bgSoft");
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            display: block;
+            align-items: center;
+          }
+
+          .event-description {
+            width: 100%;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: normal;
+          }
+        }
+
+        .action-btn {
+          display: flex;
+          justify-content: right;
+          margin-top: 15px;
+
+          button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+
+            &.joinBtn {
+              color: white;
+              background-color: themed("btn");
+
+              &:hover {
+                background-color: darken(themed("logo"), 10%);
+              }
+            }
+
+            &.quitBtn {
+              color: themed("logo");
+              background-color: transparent;
+              border: 1px solid themed("logo");
+
+              &:hover {
+                background-color: rgba(255, 32, 32, 0.1);
+                color: rgba(255, 32, 32, 0.8);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Modal Overlay: Full-screen semi-transparent background */
+.user-event-tnc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden; /* Prevent scrolling when modal is active */
+}
+
+/* Modal Content: Box in the center */
+.user-event-tnc-modal-content {
+  @include themify($themes) {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+
+    h3 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: themed("textColor");
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: themed("textColor");
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: themed("btn");
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(themed("btn"), 10%);
+      }
+    }
+  }
+}
+
+/* User Participants Modal */
+.participants-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+
+  .modal-content {
+    @include themify($themes) {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.3s ease-in-out;
+
+      h3 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+        color: themed("textColor");
+      }
+
+      .friend-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgba(240, 240, 240, 0.5);
+        }
+
+        .friend-profile-pic {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+          background: themed("bgSoft");
+        }
+
+        .friend-info {
+          flex: 1;
+
+          h2 {
+            font-size: 1.2rem;
+            color: themed("textColor");
+            margin: 0;
+          }
+        }
+      }
+
+      button {
+        margin-top: 15px;
+        padding: 8px 16px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: themed("btn");
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken(themed("btn"), 10%);
+        }
+      }
+    }
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@include mobile {
+  .user-shop-events {
+    padding: 15px;
+
+    h2,
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    .filters-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .event-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  .user-event-tnc-modal-content,
+  .modal-content {
+    width: 95%;
+    max-width: 400px;
+    padding: 20px;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}

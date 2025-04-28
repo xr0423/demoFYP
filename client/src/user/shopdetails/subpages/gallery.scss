@@ -1,0 +1,46 @@
+.user-gallery-container {
+  padding: 20px;
+  // background-color: 'bgSoft'; //#f7e5cf ??
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Same as OwnerGallery */
+  gap: 8px;
+}
+
+.gallery-card {
+  width: 100%; 
+  aspect-ratio: 1 / 1; /* Maintains a square aspect ratio */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Same shadow as OwnerGallery */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02); /* Same hover effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.gallery-image {
+  width: 100%; /* Ensures the image fills the card width */
+  height: 100%; /* Ensures the image fills the card height */
+  object-fit: cover; /* Ensures the image covers the card area without distortion */
+  border-radius: 12px; /* Consistent border radius */
+}
+
+@media (max-width: 1200px) {
+  .user-gallery-container {
+    grid-template-columns: repeat(4, 1fr); /* Adjust grid for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .user-gallery-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .user-gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

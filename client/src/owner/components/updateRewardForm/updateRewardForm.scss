@@ -1,0 +1,90 @@
+@import '../../../style.scss'; 
+
+.update-reward-form {
+  @include themify($themes) {
+    background-color: themed('bg'); // Adjust as per your theme
+    color: themed('textColor');
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 600px;
+    margin: 0 auto; // Center the form
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; // Space between input fields and buttons
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: themed('textColor');
+      }
+
+      .field-row {
+        display: flex;
+        gap: 15px;
+
+        .field {
+          flex: 1; // Make both fields in each row occupy equal width
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      input {
+        padding: 12px;
+        border: 1px solid themed('borderColor');
+        border-radius: 5px;
+        font-size: 16px;
+        color: themed('textColor');
+        background-color: themed('bgSoft');
+
+        &:focus {
+          border-color: themed('primary');
+          outline: none;
+        }
+      }
+
+      .update-button {
+        background-color: themed('btn'); /* Brown color */
+        color: themed('bg');
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #50240f;
+        }
+      }
+
+      .cancel-button {
+        background-color: themed('bg');
+        color: themed('btn');
+        border: 1px solid themed("btn");
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: themed("bgSoft");
+        }
+      }
+      .image-preview {
+        max-width: 100px; // Set a fixed width for the preview
+        max-height: 100px; // Set a fixed height for the preview
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        object-fit: cover; // Maintain aspect ratio within the specified size
+      }
+    }
+  }
+}

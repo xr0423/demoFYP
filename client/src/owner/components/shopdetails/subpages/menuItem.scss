@@ -1,0 +1,186 @@
+@import '../../../../style.scss'; // Import global theme variables
+
+.menu-item-container {
+  @include themify($themes) {
+    background-color: themed('bgSoft');
+    padding: 20px;
+    .addBtn{
+      background-color: themed('btn');
+    }
+    .menu-items-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); // Auto-fill as many columns as possible
+      grid-gap: 20px; // Gap between grid items
+      justify-items: start; // Ensure items align to the left within each row
+      align-items: start; // Align items to the top in each row
+    }
+
+    .menu-card {
+      flex: 1 1 calc(33.33% - 20px); // Desktop: 3 cards per row with gaps
+      max-width: 320px; // Limit max width for cards
+      box-sizing: border-box;
+      margin-bottom: 20px; // Space between rows
+      display: flex;
+      flex-direction: column; // Ensure flexbox behavior for card layout
+      height: 100%; // Ensure consistent height for all cards
+      padding: 0; // Ensure no padding inside card
+      
+      .item-header {
+        display: flex;
+        align-items: center;
+      
+        .item-name {
+          margin-right: 8px; // Space between name and icon
+          display: flex;
+          align-items: center;
+        }
+        
+        .info-icon {
+          font-size: 1rem; // Adjust size if necessary
+          color: #999; // Adjust color as needed
+          cursor: pointer;
+          margin-bottom: 6px;
+        }
+      }
+      .menu-card-content {
+        background-color: themed('bg');
+        color: themed('textColor');
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 20rem; // Ensure that all cards have equal height
+        padding: 16px;
+        min-width: 15rem;
+
+        &:hover {
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .MuiCardMedia-root {
+          max-height: 140px;
+          object-fit: cover; // Ensure the image scales nicely
+          width: 100%;
+        }
+
+        .MuiCardContent-root {
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-grow: 1;
+        }
+
+        .MuiTypography-h5 {
+          color: themed('textColor');
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+
+        .MuiTypography-body2 {
+          color: themed('textColorSoft');
+          margin-bottom: 8px;
+        }
+
+        .MuiTypography-subtitle1 {
+          color: themed('textColor');
+          font-weight: 500;
+          margin-bottom: 8px;
+        }
+
+        .dietary-info {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+        
+          .MuiSvgIcon-root {
+            color: themed('textColorSoft');
+          }
+        
+          .dietary-tags {
+            display: flex;
+            flex-wrap: wrap; // Allows tags to wrap to the next line
+            gap: 8px; // Adds spacing between tags
+          }
+        
+          .dietary-tag {
+            background-color: themed('logo'); // You can choose your theme color
+            color: themed('bg');
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+          }
+        }
+
+        // Action buttons for Edit/Delete when the card is clicked
+
+      }
+
+      &.selected .menu-card-content {
+        filter: blur(4px); // Apply blur to the content when card is selected
+      }
+
+      &.selected .action-buttons {
+        display: flex; // Show the buttons when the card is selected
+      }
+
+      .action-buttons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; // Hidden by default, shown when card is selected
+        gap: 10px;
+
+        button {
+          padding: 8px 16px;
+          font-size: 14px;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+
+        .edit-btn {
+          background-color: themed('btn'); 
+          color: white;
+
+          &:hover {
+            background-color: #6f4a12;
+          }
+        }
+
+        .delete-btn {
+          background-color: themed("bg");
+          border: 1px solid themed("btn");
+          color: themed("btn");
+
+          &:hover {
+            background-color: themed("btn");
+          }
+        }
+      }
+    }
+
+    // Tablet view - Two cards per row
+    @include tablet {
+      .menu-card {
+        flex: 1 1 calc(50% - 20px); // Take up 50% of the width on tablet view
+      }
+    }
+
+    // Mobile view - One card per row
+    @include mobile {
+      .menu-card {
+        flex: 1 1 100%; // Full width on mobile view
+        max-width: 100%; // Ensure the card takes full width on small screens
+        justify-items: center;
+      }
+    }
+  }
+}

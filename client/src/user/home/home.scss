@@ -1,0 +1,251 @@
+@import "../../style.scss";
+
+.user-home {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .MuiSnackbar-root {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 500px;
+      z-index: 1000;
+    
+      .MuiAlert-root {
+        background-color: rgb(107, 70, 5);
+        color: white;
+        font-weight: bold;
+      }
+
+      .MuiAlert-icon {
+        color: white !important;
+      }
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; // Ensures tabs on the left, button on the right
+      width: 100%;
+      max-width: 620px;
+
+      .nav-tabs {
+        display: flex;
+        gap: 15px;
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          color: #6f4a12;
+          transition: color 0.3s ease, background-color 0.3s ease;
+
+          &.active {
+            font-weight: bold;
+            color: #5f3615;
+            border-bottom: 2px solid #5f3615;
+          }
+
+          &:not(.active):hover {
+            color: #5f3615;
+            background-color: #d2a679;
+            border-radius: 4px;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 20px; // Adds space between the dropdown and the button
+        align-items: center;
+
+        .add-post-button {
+          padding: 8px 16px;
+          background-color: #5f3615;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #8b6324;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .dropdown-wrapper {
+          width: 220px; // Matches the size of the input field
+          position: relative;
+        
+          .MuiSelect-select {
+            padding: 8px 12px; // Ensures text is not cut off
+            font-size: 14px;
+            color: #5f3615; // Theme color
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; // Adds ellipsis for long text
+          }
+        
+          .MuiInputLabel-root {
+            color: #6f4a12;
+            font-size: 14px;
+          }
+        
+          .MuiMenuItem-root {
+            font-size: 14px;
+            color: #5f3615;
+            &:hover {
+              background-color: #f4e4d6; // Matches the theme
+            }
+          }
+        
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #ccc;
+            &:hover {
+              border-color: #8b6324; // Theme color on hover
+            }
+          }
+        }
+        
+      }
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: themed("bgSoft");
+      padding: 25px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .close-modal {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: transparent !important;
+        border: none;
+        font-size: 17px;
+        cursor: pointer;
+        color: #333 !important;
+        transition: none;
+
+        &:hover {
+          color: #333 !important;
+          background: transparent !important;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      h2 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .upload-options {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        color: #5f3615;
+
+        .option {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+          }
+        }
+      }
+
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .tag {
+          padding: 8px 16px;
+          background-color: #a37b32;
+          color: #fff;
+          border-radius: 20px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #8b6324;
+          }
+        }
+      }
+
+      .share-button {
+        padding: 10px 20px;
+        background-color: #5f3615;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        align-self: flex-end;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #4b2a11;
+        }
+      }
+    }
+  }
+}

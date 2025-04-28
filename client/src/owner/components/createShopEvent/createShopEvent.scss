@@ -1,0 +1,193 @@
+@import "../../../style.scss"; // Import global styles
+
+.createEventForm {
+  @include themify($themes) {
+    max-width: 1000px;
+    padding: 2rem;
+    background-color: themed("bgSoft"); // Darker background for a modern look
+    border-radius: 10px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: themed("textColor"); // Updated color for better contrast
+      font-size: 2rem;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .half-width {
+      width: calc(50% - 15px);
+      position: relative;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+      padding: 10px;
+      border: 1px solid themed("border");
+      border-radius: 5px;
+      background-color: themed("bg");
+      color: themed("textColor");
+      font-size: 16px;
+      width: 100%; // Ensures full-width
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: themed("btn");
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    label {
+      font-size: 1rem;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 0.5rem;
+      color: themed("textColor");
+    }
+
+    .date {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .startdate,
+      .enddate {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        label {
+          font-size: 1rem;
+          color: themed("textColor");
+        }
+
+        .MuiInputBase-root {
+          display: flex;
+          align-items: center;
+          height: 40px; // Ensures icon and input are the same height
+          box-sizing: border-box;
+          padding-right: 40px; // Space for the icon on the right side
+          position: relative;
+
+          input {
+            height: 100%; // Full height within the container
+            padding: 0 10px;
+            border: 1px solid themed("border");
+            border-radius: 5px;
+            background-color: themed("bg");
+            color: themed("textColor");
+            font-size: 16px;
+            width: 60%;
+
+            &:focus {
+              border-color: themed("btn");
+              outline: none;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          .MuiIconButton-root {
+            position: absolute;
+            right: 12px;
+            top: 10%;
+            transform: translateY(-50%);
+            padding: 8px;
+          }
+        }
+      }
+    }
+
+    .character-counter {
+      font-size: 0.9rem;
+      color: #888; // Light color for subtle appearance
+      margin-top: 4px;
+    }
+
+    .shop-name {
+      font-size: 16px;
+      color: themed("textColorSoft");
+      margin-top: 15px;
+
+      strong {
+        color: themed("textColor");
+      }
+    }
+
+    .error-bottom {
+      color: red;
+      margin-top: 10px;
+      font-size: 0.9em;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:first-of-type {
+        background-color: themed("btn");
+        color: themed("bg");
+
+        &:hover {
+          background-color: darken(themed("btn"), 10%);
+        }
+      }
+
+      &.cancel {
+        background-color: themed("bg");
+        color: themed("textColorSoft");
+        margin-left: 10px;
+
+        &:hover {
+          background-color: themed("bgSoft");
+          color: themed("textColor");
+        }
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select {
+      background-color: themed("bg");
+      appearance: none; // Remove default arrow for custom styling if needed
+      margin-bottom:10px;
+    }
+
+    @include mobile {
+      width: 100%;
+      padding: 20px;
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .half-width {
+        width: 100%;
+      }
+    }
+  }
+}

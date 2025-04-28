@@ -1,0 +1,22 @@
+@import "../../../style.scss";
+
+.expert-mypost{
+  @include themify($themes) {
+    
+    padding: 20px 50px;
+    background-color: #988071;
+    min-height: 88vh;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: white;
+    }
+    
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+ }

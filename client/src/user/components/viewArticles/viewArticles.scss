@@ -1,0 +1,23 @@
+.viewarticles {
+  padding: 70px;
+  background-color: #f6f3f3;
+  min-height: 100vh;
+
+  .articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Responsive grid
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Mobile version adjustments
+  @media (max-width: 768px) {
+    padding: 10px 20px; // Reduce padding for smaller screens
+
+    .articles-container {
+      grid-template-columns: 1fr; // Single column layout for smaller screens
+      gap: 20px; // Reduce gap between items
+    }
+  }
+}

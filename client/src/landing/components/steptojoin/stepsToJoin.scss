@@ -1,0 +1,145 @@
+.section-container {
+     background: #514242;
+     background-size: cover;
+     color: #fff;
+     padding: 40px 20px;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     overflow: hidden;
+     min-height: 100vh; // Ensures it covers full viewport initially, but grows if content exceeds
+
+     .stepContainer {
+          max-width: 600px;
+          width: 100%;
+     }
+
+     // Background pattern
+     &::before {
+          content: "";
+          position: absolute;
+          top: -50px;
+          left: -50px;
+          width: 200px;
+          height: 200px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          z-index: 0;
+     }
+
+     &::after {
+          content: "";
+          position: absolute;
+          bottom: -50px;
+          right: -50px;
+          width: 15vw;
+          height: 15vw;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          z-index: 0;
+     }
+
+     .step {
+          background-color: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          position: relative;
+          z-index: 1;
+
+          &:nth-child(even) {
+               background-color: rgba(255, 255, 255, 0.1);
+          }
+
+          .icon {
+               font-size: 4rem;
+               color: #FFD700;
+               margin-bottom: 15px;
+               transition: transform 0.3s;
+
+               &:hover {
+                    transform: scale(1.1);
+               }
+          }
+
+          .separator {
+               color: #FFD700;
+               font-size: 2rem;
+               margin: 20px 0;
+          }
+
+          .signUpButton {
+               color: #FFD700;
+               border-color: #FFD700;
+               margin-top: 15px;
+               padding: 10px 20px;
+               transition: background-color 0.3s, color 0.3s;
+
+               &:hover {
+                    background: #FFD700;
+                    color: #514242;
+               }
+          }
+
+          h4,
+          h5 {
+               font-weight: bold;
+          }
+
+          animation: fadeInUp 0.8s ease-in-out;
+
+          @keyframes fadeInUp {
+               from {
+                    opacity: 0;
+                    transform: translateY(20px);
+               }
+
+               to {
+                    opacity: 1;
+                    transform: translateY(0);
+               }
+          }
+     }
+
+     @media (max-width: 768px) {
+          padding: 20px;
+
+          .icon {
+               font-size: 3rem;
+          }
+
+          h4 {
+               font-size: 1.8rem;
+          }
+
+          .separator {
+               font-size: 1.5rem;
+          }
+
+          .signUpButton {
+               font-size: 0.9rem;
+               padding: 8px 16px;
+          }
+     }
+
+     @media (max-width: 480px) {
+          .icon {
+               font-size: 2.5rem;
+          }
+
+          h4 {
+               font-size: 1.5rem;
+          }
+
+          .separator {
+               font-size: 1.2rem;
+          }
+
+          .signUpButton {
+               font-size: 0.8rem;
+               padding: 6px 12px;
+          }
+     }
+}

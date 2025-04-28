@@ -1,0 +1,131 @@
+@import "../../../style.scss";
+
+.expertshare {
+  @include themify($themes) {
+    -webkit-box-shadow: 0px 0px 25px -20px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -20px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -25px rgba(87, 57, 2, 0.38);
+    border-radius: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+    margin-bottom: 20px;
+    width: 600px;
+    margin-top: 20px;
+
+    .expertsharecontainer {
+      padding: 20px;
+
+      
+      .selected-item{
+        margin-top: 20px;
+        .selected-shop,
+        .selected-category {
+          display: flex; // Use flexbox for layout
+          align-items: center; // Center the items vertically
+          font-size: 13px;
+
+          img {
+            width: 15px;
+            height: 15px;
+            object-fit: cover;
+            margin-right: 5px; // Add some space between the icon and the text
+          }
+        }
+    }
+
+
+      .sharetop {
+        display: flex;
+        align-items: center;
+
+        .left {
+          display: flex;
+          align-items: center;
+          flex: 1;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          input {
+            border: none;
+            outline: none;
+            padding: 10px;
+            margin-left: 15px;
+            background-color: transparent;
+            width: 80%;
+            color: themed("textColor");
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: flex-end;
+
+          .image-preview-container {
+            display: flex;
+            gap: 5px; // Add some space between previews if multiple
+            max-width: 100%; // Keep the previews within the container's bounds
+
+            img {
+              width: 100px; // Set width for preview size
+              height: 100px; // Set height for preview size
+              object-fit: cover;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+
+      hr {
+        margin: 15px 0px;
+        border: none;
+        height: 1px;
+        background-color: #333; // Darker color for the border line
+      }
+
+      .sharebottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+
+            img {
+              height: 20px;
+            }
+
+            span {
+              font-size: 14px;
+              color: black;
+              font-weight: 100;
+            }
+          }
+        }
+
+        .right {
+          button {
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            background-color: rgb(107, 70, 5);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

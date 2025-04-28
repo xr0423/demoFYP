@@ -1,0 +1,160 @@
+@import "../../style.scss";
+
+.register {
+  @include themify($themes){
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  form {
+    display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 300px; /* Ensures it fits well within the modal */
+      border-radius: 10px;
+    h1 {
+      font-size: 30px;
+      color: themed("btn");
+      margin-bottom: 10px;
+    }
+    
+
+    input{
+      border: none;
+      border-bottom: 1px solid themed("border");
+      padding: 10px;
+      font-size: 16px;
+      width: 97.5%;
+      color: themed("textColor");
+      background-color: themed("bgSoft");
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 5px;
+      width: 93%;
+      border: 1px solid themed("border");
+      background-color: themed("bg");
+    }
+    select {
+      border-bottom: 1px solid themed("border");
+      padding: 10px;
+      font-size: 16px;
+      width: 99%;
+      color: themed("textColor");
+      background-color: themed("bg");
+    }
+
+    button {
+      padding: 10px;
+      background-color: rgb(151, 107, 107);
+      color: themed("bg");
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+    .MuiSnackbar-root {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 500px;
+      z-index: 1000;
+
+      .MuiAlert-root {
+        background-color: rgb(107, 70, 5);
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    .error-message {
+      font-size: 12px;
+      color: red; /* Set error message to red */
+      text-align: left;
+      margin-top: -8px;
+      margin-bottom: -8px;
+    }
+
+    .success-message {
+      font-size: 12px;
+      color: green; /* Set success message to green */
+      text-align: left;
+      margin-top: -8px;
+      margin-bottom: -8px;
+    }
+  }
+    .code-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+
+      input {
+        flex: 3;
+      }
+
+      button {
+        font-size: 13px;
+        flex: 1;
+        padding: 10px;
+        background-color: themed("btn");
+      }
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 10px;
+      color: themed("btn");
+      .login-text {
+        color: themed("textColor");
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  @include tablet {
+    form {
+      width: 80%;
+      input,
+      select,
+      button {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .code-input-row button {
+        font-size: 14px;
+      }
+    }
+
+    
+  }
+
+  @include mobile {
+    form {
+      width: 90%;
+      height: 100%;
+      input,
+      select,
+      button {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+      .code-input-row button {
+        font-size: 12px;
+      }
+    }
+  }
+}

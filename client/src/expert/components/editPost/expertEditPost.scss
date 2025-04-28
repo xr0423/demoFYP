@@ -1,0 +1,42 @@
+.edit-post-page {
+  padding: 20px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  input {
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+
+    .post-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+
+      button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: darkred;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@import '../../../style.scss';
+
+.shoplisting {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make the card take full width within its container */
+    max-width: 280px; /* Set a max-width for consistent card sizing */
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    margin: 10px; /* Add margin for better spacing between cards */
+    background-color: #fff;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .shop {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center; /* Center the content horizontally */
+      text-align: center;
+      width: 100%; /* Ensure the shop content spans the full width */
+      border-radius: 8px;
+
+      img {
+        width: 100%; /* Make the image responsive */
+        height: 200px;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+        padding: 15px;
+      }
+
+      .detailsbutton{
+        padding: 15px;
+        margin-bottom: -15px;
+        background-color: #f5ebe1;
+        border-radius: 0 0 16px 16px;
+        width: 100%;
+
+        .details {
+
+          h2 {
+            font-size: 1.2rem;
+            color: #3e2723;
+            margin: 0;
+            font-weight: bold;
+          }
+
+          .type, .status {
+            font-size: 0.9rem;
+            color: #5d4037;
+            margin-top: 5px;
+          }
+        }
+
+        .buttons {
+          display: center;
+          margin-top: 10px;
+          width: 100%; /* Make button container span full width */
+
+          .editBtn,
+          .cancelBtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem; /* Increased icon size for better visibility */
+            padding: 10px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          .editBtn {
+            color: #4caf50; /* Green color for edit */
+          }
+
+          .cancelBtn {
+            color: #e53935; /* Red color for delete */
+          }
+        }
+      }
+    }
+
+    .no-shop-message {
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      color: #5d4037;
+
+      button {
+        background-color: #3e2723;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #5d4037;
+        }
+      }
+    }
+  }
+}

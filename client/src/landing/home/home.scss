@@ -1,0 +1,93 @@
+@import "../../style.scss";
+
+.landing-home {
+  @include themify($themes) {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: themed("bgSoft");
+    color: themed("textColor");
+
+    // Blurred background image styling
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #f5ebe187; 
+      z-index: 0;
+    }
+
+    // Content styling
+    .content {
+      position: relative; // Ensure it sits above the background
+      z-index: 1; // Keeps the content above the blurred background
+      padding: 40px;
+      max-width: 800px;
+
+      h1 {
+        font-size: 3rem;
+        color: themed("textColor");
+      }
+
+      p {
+        font-size: 1.5rem;
+        color: themed("textColorSoft");
+        margin: 20px 0;
+      }
+
+      .cta-button {
+        background-color: transparent;
+        border: 2px solid themed("btn");
+        color: themed("textColor");
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: themed("btn");
+          color: white;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+
+    // Responsive adjustments
+    @include mobile {
+      padding: 10px;
+      .content {
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    @include tablet {
+      padding: 15px;
+      .content {
+        h1 {
+          font-size: 2.2rem;
+        }
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

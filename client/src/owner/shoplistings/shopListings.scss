@@ -1,0 +1,60 @@
+@import '../../style.scss';
+
+.shoplistings {
+  @include themify($themes) {
+    background-color: themed('bgSoft');
+    padding: 20px;
+    min-height: 100vh;
+
+    .add-button {
+      background-color: #925C44;
+      color: white;
+      border-radius: 50%;
+      padding: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #b27b5b;
+      }
+    }
+
+    .MuiCard-root {
+      background-color: #f5ebe1;
+      border-radius: 16px;
+    }
+
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      gap: 10px; // Space between search bar and add button
+      flex-wrap: wrap; // Make it wrap when necessary for responsiveness
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        background-color: white;
+        border-radius: 8px;
+        padding: 5px 10px;
+        flex: 1; // Make the search bar take up available space
+        max-width: 600px; // Set a max width to avoid it being too wide
+
+        input {
+          border: none;
+          outline: none;
+          flex: 1; // Take up available space inside the search bar
+          font-size: 16px;
+          padding: 5px;
+        }
+
+        .search-icon {
+          color: #6b4605; // Use your color scheme
+        }
+      }
+    }
+
+    
+  }
+}

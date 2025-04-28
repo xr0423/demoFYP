@@ -1,0 +1,144 @@
+@import "../../../style.scss";
+
+.user-notification {
+  @include themify($themes) {
+
+    position: relative;
+    cursor: pointer;
+
+    .user-notification-panel {
+      position: absolute;
+      top: 50px; /* Position below the notification icon */
+      right: 0;
+      width:400px; /* Adjust width as needed */
+      max-height: 500px; /* Limit the height of the panel */
+      background-color: themed("bg");
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow-y: auto;
+      z-index: 1000;
+      padding: 15px;
+
+      .user-notification-header {
+        display: flex;
+        justify-content: space-between; /* This will push the button to the right */
+        align-items: center; /* Center-align the title and button vertically */
+        margin-bottom:10px;
+      }
+      
+      .read-all-btn {
+        margin-left: auto; /* Ensures the button is aligned to the right */
+      }
+      
+
+      h4 {
+        margin: 0 0 10px 0;
+        font-weight: bold;
+        font-size: 16px;
+        color: themed("textColor");
+      }
+
+      .user-notification-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .user-notification-item {
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-bottom: 1px solid themed("border");
+          transition: background-color 0.2s;
+          background-color: themed('bgSoft');
+
+          &:hover {
+            background-color: rgb(247, 232, 209) ;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .user-notification-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid themed("border");
+          }
+
+          .user-notification-content {
+            flex-grow: 1;
+
+            .notification-timestamp {
+              font-size: 12px;
+              color: gray;
+              margin-top: 5px;
+            }            
+
+            p {
+              margin: 0;
+              font-size: 14px;
+              color: themed("textColor");
+              font-weight: 500;
+            }
+
+            .notification-timestamp {
+              margin-top: 5px;
+              font-size: 12px;
+              color: themed("hoverText");
+            }
+          }
+        }
+
+        .user-no-notifications {
+          padding: 15px;
+          text-align: center;
+          font-size: 14px;
+          color: themed("textColor");
+        }
+      }
+    }
+
+    .post-notification-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .post-notfication-modal-content {
+      background-color: themed('bgSoft');
+      border-radius: 8px;
+      padding: 10px;
+      width: 650px;
+      max-width: 90%;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      position: relative;
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #888;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+// ProfileTabs.scss
+@import "../../style.scss"; // Import your main style file
+
+.profile-posts {
+  .post {
+    margin-bottom: 20px; // Adds bottom margin for spacing between posts
+    padding: 10px; // Optional: adds padding within each post for visual appeal
+    border-radius: 8px; // Optional: rounded corners
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: subtle shadow for separation
+    margin-top: 100px;
+
+    }
+}

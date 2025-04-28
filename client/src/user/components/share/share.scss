@@ -1,0 +1,250 @@
+@import "../../../style.scss";
+
+.user-post-share {
+  @include themify($themes) {
+    -webkit-box-shadow: 0px 0px 25px -20px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -20px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -25px rgba(87, 57, 2, 0.38);
+    border-radius: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+    margin-bottom: 20px;
+    width: 600px;
+    margin-top: 20px;
+
+    .container {
+      padding: 20px;
+
+      .moretags {
+        margin-top: 10px;
+        color: rgb(107, 70, 5);
+        font-size: 15px; /* Set the desired font size */
+        padding: 2px; /* Set the desired padding */
+        text-transform: none; /* Keep text as entered */
+        background: none;
+        border: none;
+      
+        &:hover {
+          color: rgb(107, 70, 5); /* Set to same color to avoid hover effect */
+          text-decoration: none; /* Ensure no underline or other decoration on hover */
+          background: none; /* Ensure background doesn't change on hover */
+        }
+      }      
+      
+
+      .selected-item {
+        margin-top: 20px;
+
+        .selected-shop,
+        .selected-category {
+          display: flex;
+          align-items: center;
+          font-size: 13px;
+
+          img {
+            width: 15px;
+            height: 15px;
+            object-fit: cover;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+
+        .left {
+          display: flex;
+          align-items: center;
+          flex: 1;
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          // Style for input or textarea
+          input, textarea {
+            border: none;
+            outline: none;
+            padding: 10px;
+            margin-left: 15px;
+            background-color: transparent;
+            width: 80%;
+            color: themed("textColor");
+            resize: none; // Prevents resizing if textarea
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+
+      hr {
+        margin: 15px 0px;
+        border: none;
+        height: 1px;
+        background-color: #333;
+      }
+
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        
+        .item-row {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 10px 0;
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+
+          img {
+            height: 20px;
+          }
+
+          span {
+            font-size: 14px;
+            color: black;
+            font-weight: 100;
+          }
+        }
+
+        .image-upload-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
+        .image-preview-container {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
+        .image-preview {
+          position: relative;
+          display: inline-block;
+
+          .file-preview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+          }
+
+          .remove-icon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 30px; // Equal width for round shape
+            height: 30px; // Equal height for round shape
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 50%; // Makes it a perfect circle
+            display: flex;
+            align-items: center;
+            justify-content: center; // Centers the icon inside the button
+            padding: 0;
+            border: none;
+            cursor: pointer;
+        
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.8);
+            }
+        
+            svg {
+              font-size: 16px; // Adjust icon size if needed
+            }
+          }
+        }
+
+        .add-image-button {
+          padding: 8px;
+          border: none;
+          background-color: rgb(107, 70, 5);
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          height: 50px;
+          width: 50px;
+        }
+      }
+      
+      .right {
+        align-self: flex-end;
+
+        button {
+          border: none;
+          padding: 8px 12px;
+          color: white;
+          cursor: pointer;
+          background-color: rgb(107, 70, 5);
+          border-radius: 5px;
+
+          &:hover {
+            background-color: rgb(85, 55, 4);
+          }
+        }
+      }
+    }
+
+    // Style for category tags
+    .category-tag {
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      background-color: rgba(153, 101, 21, 0.8); // Light brown for unselected
+      transition: background-color 0.3s ease;
+
+      &.selected {
+        background-color: rgba(87, 57, 2, 1.0); // Dark brown for selected
+      }
+
+      &:hover {
+        background-color: rgba(153, 101, 21, 1.0); // Darker shade on hover
+      }
+    }
+
+    // Snackbar styling for notifications
+    .MuiSnackbar-root {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 500px;
+      z-index: 1000;
+
+      .MuiAlert-root {
+        background-color: rgb(107, 70, 5);
+        color: white;
+        font-weight: bold;
+      }
+
+      .MuiAlert-icon {
+        color: white !important;
+      }
+    }
+  }
+}
+
+

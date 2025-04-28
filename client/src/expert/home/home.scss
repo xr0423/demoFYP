@@ -1,0 +1,65 @@
+@import "../../style.scss";
+
+.experthome {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .experttab {
+      display: flex;
+      justify-content: flex-start; // Aligns tabs to the left
+      width: 100%; // Takes full width to align left
+      max-width: 620px;
+      margin-bottom: 20px;
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #6f4a12; // Set unselected text color to brown
+        transition: color 0.3s ease, background-color 0.3s ease;
+
+        &.active {
+          font-weight: bold;
+          color: #5f3615; // Darker brown for selected tab
+          border-bottom: 2px solid #5f3615;
+        }
+
+        &:not(.active):hover {
+          color: #5f3615;
+          background-color: #d2a679; // Light brown background on hover
+          border-radius: 4px; // Optional: Adds a subtle rounded effect for hover
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .selectcontainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Centers the Share and Posts components
+      width: 100%;
+      max-width: 700px; // Restrict the width for better alignment
+      margin: 0 auto; // Center the container horizontally
+
+      @include themify($themes) {
+        background-color: themed("bg"); // Ensure it uses the background theme
+        border-radius: 15px;
+        padding: 20px;
+      }
+    }
+  }
+}

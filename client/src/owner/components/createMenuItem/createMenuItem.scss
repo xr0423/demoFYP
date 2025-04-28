@@ -1,0 +1,180 @@
+@import "../../../style.scss";
+
+.form-container {
+  @include themify($themes) {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: themed("bgSoft");
+    border-radius: 10px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: themed("textColor");
+    }
+
+    .create-menu-item-form {
+      .form-group {
+        margin-bottom: 1rem;
+
+        label {
+          font-size: 1rem;
+          display: block;
+          margin-bottom: 0.5rem;
+          color: themed("textColor");
+        }
+
+        input,
+        textarea,
+        select {
+          width: 100%;
+          max-width: 540px; // Standard width for inputs, select, and textarea
+          padding: 0.75rem;
+          border: 1px solid #333;
+          border-radius: 5px;
+          font-size: 1rem;
+          background-color: themed("bg");
+          color: themed("textColor");
+          transition: border 0.3s ease;
+
+          &:focus {
+            border-color: #28a745;
+            outline: none;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          height: 100px;
+        }
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // Three equal-width columns
+        gap: 0.5rem;
+
+        @include mobile {
+          grid-template-columns: repeat(2, 1fr); // Two columns on mobile
+        }
+
+        @include tablet {
+          grid-template-columns: repeat(3, 1fr); // Three columns on tablet
+        }
+
+        .checkbox-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between; // Ensures the label and checkbox are spaced
+
+          input[type="checkbox"] {
+            display: none; // Hide the actual checkbox
+          }
+
+          label {
+            display: block;
+            flex-grow: 1;
+            text-align: center; // Center-align the text
+            cursor: pointer;
+            padding: 0.5rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; // Ensure all labels take up the same width
+
+            &:hover {
+              background-color: themed("bg"); // Light gray on hover
+            }
+          }
+
+          input[type="checkbox"]:checked + label {
+            background-color: #514242; // Change to the requested color when checked
+            color: white;              // Keep text color white
+            border-color: #514242;
+          }
+        }
+      }
+
+      .image-form-group {
+        margin-bottom: 1rem;
+
+        label {
+          font-size: 1rem;
+          display: block;
+          margin-bottom: 0.5rem;
+          color: themed("textColor");
+        }
+
+        input[type="file"] {
+          width: 100%;        
+          max-width: 515px;   
+          padding: 0.75rem;   
+          border: 1px solid #333;
+          border-radius: 5px;
+          font-size: 1rem;
+          background-color: themed("bg");
+          color: themed("textColor");
+          transition: border 0.3s ease;
+
+          &:focus {
+            border-color: #28a745;
+            outline: none;
+          }
+        }
+
+        img.image-preview {
+          margin-top: 0.5rem;
+          max-width: 100%;
+          height: auto;
+          border-radius: 5px;
+        }
+      }
+
+      .form-group-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        max-width: 540px;
+
+        @include mobile {
+          flex-direction: column;
+        }
+      
+
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          color: themed("textColor");
+        }
+      }
+        .icon-toggle {
+          display: flex;
+          align-items: center; // Align the button and label vertically
+          gap: 0.5rem; // Add space between the button and the label
+          width: 100%; // Ensures it takes full width
+          max-width: 540px; // Matches the width of other form fields
+
+          .toggle-label {
+            font-size: 1rem; 
+            color: themed("textColorSoft"); 
+          }
+
+          .MuiIconButton-root {
+            width: 100%; // Ensures the button fills the container
+            padding: 0.75rem; 
+            border-radius: 5px;
+            font-size: 1.5rem; 
+          }
+        }
+      }
+    }
+  }
+}

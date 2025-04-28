@@ -1,0 +1,139 @@
+@import "../../../style.scss"; // Import global styles
+
+.updateEventForm {
+    @include themify($themes) {
+      max-width: 1000px;
+      padding: 2rem;
+      background-color: themed("bgSoft"); // Darker background for a modern look
+      border-radius: 10px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: themed("textColor");
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 1rem;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 0.5rem;
+      color: themed("textColor");
+    }
+
+    .input-group {
+      margin-top: 10px;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .half-width {
+      width: calc(50% - 15px);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+      padding: 10px;
+      border: 1px solid themed("border");
+      border-radius: 5px;
+      background-color: themed("bg");
+      color: themed("textColor");
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: themed("btn");
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .character-counter {
+      font-size: 0.9rem;
+      color: #888; // Light color for subtle appearance
+      margin-top: 4px;
+    }
+
+    select {
+      background-color: themed("bg");
+      appearance: none; // Remove default arrow for custom styling if needed
+      margin-bottom: 10px;
+    }
+    
+    .shop-name {
+      font-size: 16px;
+      color: themed("textColorSoft");
+      margin-top: 15px;
+
+      strong {
+        color: themed("textColor");
+      }
+    }
+    .error-bottom {
+      color: red;
+      margin-top: 10px;
+      font-size: 0.9em;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:first-of-type {
+        background-color: themed("btn");
+        color: white;
+
+        &:hover {
+          background-color: darken(themed("btn"), 10%);
+        }
+      }
+
+      &.cancel {
+        background-color: themed("bg");
+        color: themed("textColorSoft");
+        margin-left: 10px;
+
+        &:hover {
+          background-color: themed("bgSoft");
+          color: themed("textColor");
+        }
+      }
+    }
+
+    @include mobile {
+      width: 100%;
+      padding: 20px;
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .half-width {
+        width: 100%;
+      }
+    }
+  }
+}

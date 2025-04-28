@@ -1,0 +1,143 @@
+@import '../../style.scss'; // Import global styles
+
+.shopEvent {
+  @include themify($themes) {
+    padding: 20px;
+    background-color: themed('bg');
+    font-family: 'Arial', sans-serif;
+    color: themed('textColor');
+
+    h1 {
+      font-weight: 600;
+      color: themed('textColor');
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .event-card {
+        background-color: themed('bgSoft');
+        padding: 20px;
+        margin: 7px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+        display: grid;
+        grid-template-columns: 1fr 1fr; // Two columns layout
+        gap: 20px;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 600;
+          color: themed('textColor');
+          margin-bottom: 10px;
+          grid-column: span 2; // Span across both columns
+        }
+
+        .event-detail {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          color: themed('textColorSoft');
+          margin: 5px 0;
+
+          .icon {
+            margin-right: 10px;
+            color: themed('textColor');
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+
+            strong {
+              color: themed('textColor');
+            }
+          }
+        }
+
+        .event-actions {
+          display: flex;
+          gap: 10px;
+          margin-top: 10px;
+          align-self: flex-end; // Align actions to the end of the card
+
+          .mui-icon-button {
+            color: themed('textColorSoft');
+            background-color: themed('bgSoft');
+            border-radius: 5px;
+            padding: 8px;
+
+            &:hover {
+              background-color: themed('bg');
+              color: themed('textColor');
+            }
+          }
+        }
+      }
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); // Dark background
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    
+      .modal-content {
+        background-color: themed("bg");
+        padding: 20px;
+        border-radius: 10px;
+        width: 500px;
+        max-width: 100%;
+        position: relative;
+    
+        .close-modal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+    
+
+    @include mobile {
+      .event-list {
+        .event-card {
+          grid-template-columns: 1fr; // One column layout on mobile
+          padding: 15px;
+
+          .event-detail {
+            flex-direction: column; // Stack details vertically
+            align-items: flex-start;
+          }
+
+          .event-actions {
+            justify-content: flex-start; // Align buttons on the left
+          }
+        }
+      }
+    }
+
+    @include tablet {
+      .event-list {
+        .event-card {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

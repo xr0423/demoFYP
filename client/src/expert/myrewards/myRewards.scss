@@ -1,0 +1,141 @@
+@import "../../style.scss";
+.my-rewards-container {
+    @include themify($themes){
+    padding: 20px;
+    background-color: theme(bgSoft);
+
+    .MuiTabs-root {
+        .MuiTab-root {
+            &.Mui-selected {
+                color: #8B4513; // Change active tab text color to brown
+            }
+        }
+
+        .MuiTabs-indicator {
+            background-color: #8B4513; // Change indicator color to brown
+        }
+    }
+    h2 {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+
+        svg {
+            margin-right: 10px; // Star Icon next to My Rewards title
+        }
+    }
+
+    .points-balance {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px; // Add padding for spacing inside the border
+        border: 2px solid themed('borderColor'); // Border around points balance
+        border-radius: 8px; // Optional: rounded corners
+        display: inline-block;
+        
+        @media (max-width: 768px) {  // Tablet
+            text-align: center;
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {  // Mobile
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .voucher-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .voucher-item {
+            padding: 15px;
+            display: inline-block;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; 
+            .voucher-image {
+                width: 120px;
+                height: 120px;
+                object-fit: contain;
+              }
+            .label-value {
+                margin: 5px 0;
+                font-size: 16px;
+                .label{
+                    font-weight: bold;
+                }
+                @media (max-width: 768px) {  // Tablet
+                    font-size: 14px;
+                }
+
+                @media (max-width: 480px) {  // Mobile
+                    font-size: 12px;
+                }
+            }
+
+            strong {
+                font-size: 18px;
+                color: #333;
+
+                @media (max-width: 768px) {  // Tablet
+                    font-size: 16px;
+                }
+
+                @media (max-width: 480px) {  // Mobile
+                    font-size: 14px;
+                }
+            }
+
+            button {
+                padding: 8px 16px;
+                background-color: #e4ac54;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #e4ad548a;
+                }
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+
+                @media (max-width: 768px) {  // Tablet
+                    font-size: 14px;
+                    padding: 6px 14px;
+                }
+
+                @media (max-width: 480px) {  // Mobile
+                    font-size: 12px;
+                    padding: 5px 12px;
+                }
+            }
+
+            @media (max-width: 768px) {  // Tablet
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            @media (max-width: 480px) {  // Mobile
+                padding: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+}
+}

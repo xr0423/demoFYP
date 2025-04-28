@@ -1,0 +1,75 @@
+@import "../../style.scss";
+.updateReviewForm {
+  @include themify($themes) {
+
+    h1{
+      text-align: center;
+      color: themed('primary');
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 1rem;
+      color: themed("textColor");
+      margin-bottom: -10px; // Reduce space between label and input
+      display: block;
+    }
+    
+    .review-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; // Adjusted gap between form elements for a tighter layout
+
+      .MuiRating-icon {
+        font-size: 2.5rem; // Adjust the size to make the stars larger
+      }
+
+      .MuiRating-iconFilled {
+        color: #5E3410; // Change the filled star color to yellow
+      }
+
+      select,
+      textarea {
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+    
+      .update-btn {
+        background-color: themed('btn'); // Set button background color to brown
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #5E3410; // Darker brown on hover
+        }
+      }
+
+      .cancel-btn {
+        background-color: transparent;
+        color: themed('btn');;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border: 2px solid #8B4513;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: #fff;
+          color: #8B4513;
+        }
+      }  
+    }
+  }
+}

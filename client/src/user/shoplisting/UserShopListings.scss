@@ -1,0 +1,158 @@
+@import "../../style.scss";
+
+.user-shop-listings {
+  @include themify($themes) {
+    background-color: themed('bgSoft');
+    padding: 10px; // Reduced padding to bring cards closer to page edges
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .MuiSnackbar-root {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 500px;
+      z-index: 1000;
+    
+      .MuiAlert-root {
+        background-color: rgb(107, 70, 5);
+        color: white;
+        font-weight: bold;
+      }
+
+      .MuiAlert-icon {
+        color: white !important;
+      }
+    }
+    
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px; // Adjust padding
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        background-color: white;
+        border-radius: 8px;
+        padding: 5px 10px;
+        flex: 1;
+        max-width: 600px;
+
+        input {
+          border: none;
+          outline: none;
+          flex: 1;
+          font-size: 16px;
+          padding: 5px;
+        }
+
+        .search-icon {
+          color: #6b4605;
+        }
+      }
+
+      button {
+        flex-shrink: 0;
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 20px;
+        font-weight: 500;
+        text-transform: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        white-space: nowrap;
+
+        &.MuiButton-contained {
+          background-color: #925C44;
+          color: #fff;
+
+          &:hover {
+            background-color: #7A4838;
+          }
+        }
+
+        &.MuiButton-outlined {
+          border-color: #925C44;
+          color: #925C44;
+
+          &:hover {
+            background-color: rgba(146, 92, 68, 0.1);
+          }
+        }
+      }
+    }
+
+    .shop-row-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      h2 {
+        margin: 20px 0;
+        text-align: center;
+        color: #333;
+      }
+    }
+
+    .no-shop-listings {
+      text-align: center;
+      font-size: 16px;
+      color: #999;
+      margin-top: 24px;
+    }
+
+    .shoplisting {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 360px;
+      padding: 15px;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      margin: 5px; // Reduced margin for closer cards
+      background-color: #fff;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+        padding: 15px;
+      }
+
+      .detailsbutton {
+        padding: 15px;
+        background-color: #f5ebe1;
+        border-radius: 0 0 16px 16px;
+        width: 100%;
+
+        h2 {
+          font-size: 1.2rem;
+          color: #3e2723;
+          margin: 0;
+        }
+
+        .type {
+          font-size: 0.9rem;
+          color: #5d4037;
+        }
+      }
+    }
+  }
+}

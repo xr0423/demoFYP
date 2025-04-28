@@ -1,0 +1,205 @@
+@import "../../../style.scss";
+
+.navbar {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    background-color: themed("btn");
+    color: themed("textColor");
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+
+      .drawer-icon {
+        color: themed("bg");
+        cursor: pointer;
+        transition: transform 0.2s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: themed("btn");
+        color: themed("textColor");
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        
+        &.open {
+          transform: translateX(0);
+        }
+
+        .drawer-header {
+          padding: 15px;
+          border-bottom: 1px solid themed("border");
+          color: themed("textColor");
+          h3 {
+            color: themed("bg");
+            margin: 0;
+          }
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 20px 0;
+
+          li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            color: themed("bg");
+
+            &:hover {
+              background-color: themed("hoverBg");
+              transform: scale(1.05);
+            }
+
+            svg {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .center {
+      flex-grow: 1;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      color: themed("bg");
+        li{
+          cursor: pointer;
+          transition: color 0.2s;
+
+        &:hover {
+          color: themed("hoverText");
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .message-icon,
+      .profile-icon {
+        color: themed("bg");
+        cursor: pointer;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .profile-menu {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background-color: themed("bg");
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 10px;
+        width: 200px;
+        z-index: 1000;
+        
+        .profile-name {
+          font-weight: bold;
+          margin: 0; /* Remove extra margin that <p> tags might add */
+        }
+      
+        .profile-email {
+          color: themed("textColorSoft");
+          font-size: 12px;
+          margin: 0; /* Remove extra margin */
+        }
+
+        img
+        {
+            width: 40px; // Adjust the size as needed
+            height: 40px;
+            border-radius: 50%; // Make it circular
+            object-fit: cover;
+        }
+        
+        .view-profile{
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+        .logoutBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f44336; // Red color for logout
+          color: white;
+          border: none;
+          border-radius: 8px;
+          padding: 10px 20px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+
+          &:hover {
+            background-color: #d32f2f; // Darker red on hover
+            transform: scale(1.1);
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          .icon {
+            margin-right: 8px;
+            font-size: 20px;
+          }
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          padding: 8px 0;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+
+          &:hover {
+            background-color: themed("hoverBg");
+          }
+
+          svg {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

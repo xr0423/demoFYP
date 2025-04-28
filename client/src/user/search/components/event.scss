@@ -1,0 +1,90 @@
+@import "../../../style.scss";
+
+
+  .event-item {
+      @include themify($themes) {
+      border-radius: 12px; // Match border radius
+      margin: 30px 0px; // Match margins
+      background-color: themed('bgSoft'); // Match background color for boxes
+      border: none; // Remove border to eliminate outline
+      padding: 20px; // Match padding inside boxes
+      margin-bottom: 25px; // Match spacing between boxes
+      border-radius: 10px; // Match border radius
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); // Match box shadow for depth
+      transition: background-color 0.3s ease; // Optional transition
+
+      .event-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        h3 {
+          margin: 0;
+          font-size: 24px; // Match font size with owner's title
+          font-weight: 600; // Match font weight
+          color: themed("textColor"); // Match text color
+        }
+
+        .event-type {
+          display: flex;
+          align-items: center;
+          background-color: themed("btn"); // Match button background color
+          padding: 5px 10px;
+          border-radius: 15px;
+          color: white; // Match text color
+        }
+      }
+
+      .event-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        color: themed("textColorSoft"); // Match text color
+
+        svg {
+          margin-right: 10px; // Space between icon and text
+          font-size: 1.5rem; // Match icon size
+          color: themed("textColor"); // Match icon color
+        }
+
+        div {
+          font-size: 1.1rem; // Match font size for details
+          color: themed("textColor"); // Match text color
+        }
+      }
+
+      .action-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+
+        .joinBtn {
+          color: white;
+          background-color: themed("logo"); // Match button background
+          padding: 10px 20px; // Match button padding
+          font-size: 1rem; // Match font size
+          border-radius: 25px; // Match border radius
+          transition: background-color 0.3s ease; // Optional transition
+
+          &:hover {
+            background-color: darken(themed("logo"), 10%); // Match hover effect
+          }
+        }
+
+        .quitBtn {
+          color: themed("logo");
+          padding: 10px 20px;
+          background-color: transparent; // Match background
+          font-size: 1rem; // Match font size
+          border-radius: 25px; // Match border radius
+
+          &:hover {
+            background-color: rgba(255, 32, 32, 0.1); // Match hover effect
+            color: rgba(255, 32, 32, 0.8); // Match hover text color
+          }
+        }
+      }
+    }
+  }

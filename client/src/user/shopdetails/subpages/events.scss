@@ -1,0 +1,104 @@
+@import '../../../style.scss';
+
+.user-event-page {
+  @include themify($themes) {
+    padding: 20px;
+    background-color: themed('bgSoft');
+    font-family: 'Arial', sans-serif;
+
+    h2 {
+      font-weight: 600;
+      color: themed('textColor');
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+
+      .event-card {
+        background-color: #f5ebe1;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; // Allows space for buttons at the bottom
+        gap: 15px;
+
+        .event-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: themed('textColor');
+          }
+
+          .event-type {
+            background-color: themed('buttonBg');
+            color: themed('buttonText');
+            padding: 5px 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .icon {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .event-details {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .event-detail {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: themed('textColorSoft');
+
+            .icon {
+              margin-right: 10px;
+              color: themed('textColor');
+            }
+
+            strong {
+              margin-right: 5px;
+              color: themed('textColor');
+            }
+
+            .info {
+              display: flex;
+              flex-direction: column; // Ensures Date and Time stack vertically
+              margin-left: 10px;
+
+              div {
+                margin: 2px 0; // Add some spacing between Date and Time
+              }
+            }
+          }
+        }
+
+        .event-actions {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin-top: auto;
+
+
+        }}
+    }
+  }
+}

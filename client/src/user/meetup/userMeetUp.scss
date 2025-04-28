@@ -1,0 +1,487 @@
+@import '../../style.scss';
+
+.meetup-page {
+  @include themify($themes) {
+    display: block;
+    flex-direction: column;
+    gap: 20px; // Space between filters and events
+    padding: 20px;
+    background-color: themed('bgSoft');
+    border-radius: 12px;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    .meetup-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      flex-direction: column;
+      min-width: 100vw;
+    }
+
+    .meetup-card {
+  position: relative;
+  background-color: #f5ebe1;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 270px;
+  margin-left: 20px;
+  width: 100%; // Ensures the card is fully responsive within the grid
+  white-space: normal; // Allows text wrapping
+  word-wrap: break-word;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  }
+
+  .meetup-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6f4a12;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e1c7ad;
+    white-space: normal; // Allows text wrapping
+    word-wrap: break-word; // Breaks long words if necessary
+  }
+
+  .meetup-content {
+    padding: 20px;
+    color: #6b4605;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: normal; // Allows text wrapping
+    word-wrap: break-word; // Breaks long words if necessary
+  }
+
+  .meetup-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #f7e9d5;
+    border-top: 1px solid #e1c7ad;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+    
+    .meetup-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      
+      margin-bottom: 40px;
+
+      .create-meetup-button {
+        margin-top: 20px;
+        // padding: 10px 20px;
+        font-size: 16px;
+        background-color: rgb(152, 116, 77);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #d2a679;
+        }
+      }
+      .meetup-toggle {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+        margin-top: 20px;
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          color: #6f4a12;
+          transition: color 0.3s ease, background-color 0.3s ease;
+          position: relative;
+
+          &.active {
+            font-weight: bold;
+            color: #5f3615;
+            border-bottom: 2px solid #5f3615;
+          }
+
+          &:hover {
+            color: #5f3615;
+            background-color: #d2a679;
+            border-radius: 4px;
+          }
+
+          .notification-dot {
+            width: 9px;
+            height: 9px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+          }
+        }
+      }
+    }
+    
+    .event-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 20px;
+        justify-items: start;
+        align-items: stretch;
+  
+        .event-item {
+          position: relative;
+          background-color: #f5ebe1;
+          border-radius: 10px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+          border:  5px solid themed('btn');
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          width: 380px;
+          margin: 20px;
+          &:hover {
+            transform: translateY(-5px); // Subtle lift on hover
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+          }
+          &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+          .event-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        
+            svg {
+              margin-right: 8px;
+              font-size: 1.2rem;
+              color: themed('textColor');
+            }
+        
+            div {
+              font-size: 1rem;
+              color: themed('textColor');
+            }
+            
+            /* Image Section */
+            .event-image {
+              width: 100%;
+                    height: 300px;
+                    background: themed('bgSoft');
+                    border-radius: 8px;
+                    margin-bottom: 15px;
+                    object-fit: cover;
+                    display: block;
+                    align-items: center;
+            }
+            .event-description {
+              width: 100%;
+              box-sizing: border-box;
+              word-wrap: break-word; // Ensures long words break to fit within the box
+              white-space: normal;
+        
+            }
+          }
+  
+          .action-btn {
+            display: flex;
+            justify-content: right;
+            margin-top: 15px;
+            
+            button {
+              padding: 8px 12px;
+              font-size: 0.9rem;
+              border-radius: 20px;
+              transition: background-color 0.3s ease;
+  
+              &.joinBtn {
+                color: white;
+                background-color: themed('btn');
+  
+                &:hover {
+                  background-color: darken(themed('logo'), 10%);
+                }
+              }
+  
+              &.quitBtn {
+                color: themed('logo');
+                background-color: transparent;
+                border: 1px solid themed('logo');
+                
+                &:hover {
+                  background-color: rgba(255, 32, 32, 0.1);
+                  color: rgba(255, 32, 32, 0.8);
+                }
+              }
+            }
+          }
+        }
+      }
+
+    .centered-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+  
+
+  .update-meetup-button {
+    background-color: #6b4605; // Primary Button Background Color
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #543405; // Darker shade for hover effect
+      transform: scale(1.05);
+    }
+  }
+
+  .delete-meetup-button {
+    background-color: transparent; // Outline Button
+    color: #6b4605; // Primary Button Color
+    border: 2px solid #6b4605; // Outline Color
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #e1c7ad; // Hover Background (Light, as specified in the document)
+      color: #543405; // Slightly darker for hover
+      transform: scale(1.05);
+    }
+  }
+
+  .invite-meetup-button {
+    background-color: transparent;
+    border-radius: 5px;
+    &:hover {
+      background-color: #e7e0d8;
+    }
+  }
+
+  .accept-meetup-button {
+    background-color: #6b4605; // Primary Button Background Color
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #543405; // Darker shade for hover effect
+      transform: scale(1.05);
+    }
+  }
+
+  .reject-meetup-button {
+    margin-left: 20px;
+    background-color: transparent; // Outline Button
+    color: #6b4605; // Primary Button Color
+    border: 2px solid #6b4605; // Outline Color
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #e1c7ad; // Hover Background (Light, as specified in the document)
+      color: #543405; // Slightly darker for hover
+      transform: scale(1.05);
+    }
+  }
+
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  
+    .modal-content {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      box-sizing: border-box;
+  
+      h3 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+  
+      .modal-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+  
+        .share-button {
+          padding: 10px 20px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #388e3c;
+          }
+        }
+  
+        .cancel-button {
+          padding: 10px 20px;
+          background-color: #f44336;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #d32f2f;
+          }
+        }
+      }
+    }
+  }
+  
+  .create-meetup-form,
+  .update-meetup-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    max-width: 600px;
+    width: 100%;
+  
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .character-counter {
+      font-size: 0.9rem;
+      color: #888; // Light color for subtle appearance
+      margin-top: 2px;
+    }
+  
+    input[type='text'],
+    input[type='datetime-local'],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: border-color 0.3s ease;
+  
+      &:focus {
+        border-color: #6f4a12;
+        outline: none;
+      }
+    }
+  
+    .date-picker-wrapper {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      width: 100%;
+    }
+    .error{
+      color: red;
+    }
+  
+    button {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+  
+      &:first-of-type {
+        background-color: themed("btn");
+        color: white;
+  
+        &:hover {
+          background-color: darken(themed("btn"), 10%);
+        }
+      }
+  
+      &.cancel {
+        background-color: themed("bgSoft");
+        color: themed("textColorSoft");
+        margin-top: 10px;
+  
+        &:hover {
+          background-color: themed("bgSoft");
+          color: themed("textColor");
+        }
+      }
+    }
+  }
+}
+
+}
+
+.meetup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.meetup-list {
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+

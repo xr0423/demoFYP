@@ -1,0 +1,124 @@
+@import "../../style.scss";
+
+.map-container {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    padding: 20px;
+    background: themed(bgSoft);
+    height: 100vh;
+
+    h2 {
+      text-align: center; /* Centers the <h2> text */
+      margin-bottom: 20px;
+      color: themed("textColor");
+    }
+
+    .map-search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      .map-search-input {
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        width: 240px;
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+        outline: none;
+        color: themed("textColor");
+        background: transparent;
+      }
+    }
+    .select-filter {
+      margin: 10px 0;
+      margin-right: 10px;
+      display: inline-block;
+    
+      select {
+        padding: 8px 12px;
+        font-size: 16px;
+        background-color: #f0f0f0; // Adjust to your desired color
+        border: 1px solid #ccc; // Adjust border as needed
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    
+        &:hover {
+          border-color: #007bff; // Border color on hover
+        }
+    
+        &:focus {
+          border-color: #007bff; // Border color on focus
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    
+        option {
+          color: #333; // Option text color
+          background-color: #fff; // Option background color
+        }
+      }
+    }
+    
+
+    .proximity-slider-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      label {
+        color: themed("textColorSoft");
+      }
+
+      .proximity-slider {
+        width: 200px;
+        margin-right: 10px;
+      }
+
+      .proximity-input {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        margin-right: 5px;
+        background: transparent;
+        color: themed("textColorSoft");
+      }
+    }
+
+    .map {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+.map-page {
+  display: flex;
+  height: 100vh;
+  transition: margin-left 0.3s ease;
+
+  &.drawer-open {
+    margin-left: 240px; // Adjust based on drawer width
+  }
+}
+
+.map-container {
+  flex: 1;
+  transition: width 0.3s ease;
+}
+
+.drawer-open .map-container {
+  width: calc(100% - 240px);
+}
+
+.cafe-details {
+  margin-top: 20px;
+  padding: 20px;
+}
+

@@ -1,0 +1,105 @@
+@import '../../style.scss';
+
+.menu-item-container {
+    @include themify($themes) {
+        padding: 20px;
+
+        .menu-items-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-gap: 20px;
+            justify-items: start;
+            align-items: start;
+        }
+
+        .menu-card {
+            max-width: 320px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+
+            .menu-card-content {
+                background-color: themed('bgSoft');
+                color: themed('textColor');
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 16px;
+                min-width: 15rem;
+
+                &:hover {
+                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+                }
+
+                .MuiCardMedia-root {
+                    max-height: 140px;
+                    object-fit: cover;
+                    width: 100%;
+                }
+
+                .MuiCardContent-root {
+                    padding: 16px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    flex-grow: 1;
+                }
+
+                .MuiTypography-h5 {
+                    color: themed('textColor');
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                }
+
+                .MuiTypography-body2 {
+                    color: themed('textColorSoft');
+                    margin-bottom: 8px;
+                }
+
+                .dietary-info {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+
+                    .MuiSvgIcon-root {
+                        color: themed('textColorSoft');
+                    }
+
+                    .dietary-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
+                    .dietary-tag {
+                        background-color: themed('logo');
+                        color: themed('bg');
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+
+        @include tablet {
+            .menu-card {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @include mobile {
+            .menu-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

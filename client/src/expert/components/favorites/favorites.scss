@@ -1,0 +1,160 @@
+@import "../../../style.scss";
+
+.expertfavorites {
+    padding: 20px;
+    @include themify($themes) {
+        background-color: themed("bgSoft");
+    }
+    min-height: 100vh;
+
+    .expertfavtabs {
+        .MuiTab-root {
+            color: #6f4a13; // Brown color for unselected tabs
+        }
+    
+        .Mui-selected {
+            color: #6f4a12; // Darker brown for selected tab
+            font-weight: bold; // Make the selected tab bold
+        }
+    
+        .MuiTabs-indicator {
+            background-color: #6f4a12; // Brown color for the underline indicator
+        }
+    }    
+
+    .page-title {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+    }
+
+    .post-favorite,
+    .shop-favorite,
+    .article-favorite {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top:15px;
+        margin-bottom: 0px; // Adjusted for smaller gap
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+    }
+
+    /* Text truncation and expansion styling */
+    .truncate {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Number of lines to show before truncating */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .show-full-text {
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+    .read-more {
+        color: #8B4513;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 5px;
+        display: inline-block;
+
+        &:hover {
+            color: #5f3615;
+            text-decoration: underline;
+        }
+    }
+
+    /* Author/Owner info styling */
+    .author-info, .owner-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        .author-pic, .owner-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .author-name {
+        font-weight: bold;
+    }
+
+    /* Shop listing styling */
+    .shop-favorite {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .shop-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    }
+
+    /* Favorite buttons */
+    button {
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
+    /* Article styling */
+    .article-favorite {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-height: 200px;
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+
+    /* Responsive styling */
+    @media (max-width: 960px) {
+        .post-favorite, .shop-favorite, .article-favorite {
+            margin-bottom: 10px;
+        }
+
+        .shop-favorite .shop-image {
+            height: 150px;
+        }
+    }
+
+    .empty-state {
+        text-align: center;
+        margin-top: 20px;
+        color: #888;
+        font-size: 1rem;
+    }
+
+    /* Bookmark icon at the top right */
+    .bookmark-icon {
+        color: #8B4513; // Brown color
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,182 @@
+@import "../../style.scss";
+
+.gallery {
+  @include themify($themes) {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #E8E0DC;
+    color: themed("textColor");
+    position: relative;
+    overflow: hidden;
+
+    // Background shapes for visual enhancement
+    &::before {
+      content: "";
+      position: absolute;
+      top: -95px;
+      right: -50px;
+      width: 15vw;
+      height: 15vw;
+      background-color: rgba(100, 90, 90, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5%;
+      right: -10%;
+      width: 15vw;
+      height: 15vw;
+      background-color: rgba(100, 90, 90, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: themed("textColor");
+      font-weight: bold;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .gallery-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px; // Space between each gallery card
+      z-index: 1;
+    }
+
+    .gallery-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      // Alternate background colors for each item
+      &:nth-child(odd) {
+        background-color: #635555;
+        h3{
+          color: white;      
+          &::after {
+            content: "";
+            display: block;
+            width: 90%;
+            height: 2px;
+            background: #ffd700;
+            margin: 20px auto 0 auto;
+          }
+        }
+        p{
+          color: white;
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: #f5f0ec;
+        h3{
+          color: themed("textColor");
+          &::after {
+            content: "";
+            display: block;
+            width: 90%;
+            height: 2px;
+            background: #8B4513;
+            margin: 20px auto 0 auto;
+          }
+        }
+        p{
+          color: themed("textColorSoft");
+        }
+      }
+
+      // For odd-numbered items, reverse the layout
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+
+      .gallery-info {
+        flex: 1;
+        padding: 20px;
+        z-index: 1;
+
+        h3 {
+          font-size: 1.8rem;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 1.1rem;
+          
+        }
+      }
+
+      .gallery-image-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        .gallery-image {
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px;
+          object-fit: cover;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05); // Slight zoom on hover for the image
+          }
+        }
+      }
+    }
+
+    // Responsive Design
+    @include mobile {
+      padding: 40px 10px;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .gallery-item {
+        flex-direction: column;
+
+        &:nth-child(odd) {
+          flex-direction: column;
+        }
+
+        .gallery-info {
+          padding: 10px;
+        }
+
+        .gallery-image-wrapper {
+          margin-top: 15px;
+        }
+      }
+    }
+
+    @include tablet {
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

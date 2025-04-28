@@ -1,0 +1,126 @@
+$themes: (
+  light: (
+    textColor: #000,
+    bg: white,
+    logo: rgba(106, 72, 72, 0.8),
+    bgSoft: #f6f3f3,
+    textColorSoft: #555,
+    border: lightgray,
+    btn: rgb(81, 66, 66)
+  ),
+  dark: (
+    textColor: whitesmoke,
+    bg: #222,
+    logo: white,
+    bgSoft: #333,
+    textColorSoft: lightgray,
+    border: #444,
+    btn: black,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 480px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+.primaryConfirmBtn {
+  background-color: green;
+}
+
+.addBtn {
+  background-color: #4CAF50; /* A more vibrant green for adding */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+
+  &:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.01); /* Slightly enlarge button on hover */
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.cancelBtn {
+  background-color: transparent; /* Transparent background by default */
+  color: #f44336; /* Red text for cancel action */
+  padding: 8px 18px;
+  border: 2px solid #f44336; /* Border matching the cancel color */
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  margin: 10px;
+
+  &:hover {
+    background-color: #f44336; /* Solid red background on hover */
+    color: white; /* White text on hover for contrast */
+    transform: scale(1.01); /* Slightly enlarge button on hover */
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.editBtn {
+  background-color: #2196F3; /* Blue background for edit action */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+
+  &:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+    transform: scale(1.01); /* Slightly enlarge button on hover */
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+

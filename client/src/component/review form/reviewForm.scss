@@ -1,0 +1,98 @@
+@import '../../style.scss';
+
+.app-review-form-modal {
+     @include themify($themes) {
+       .modal {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5); /* Dim background */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 9999; /* Ensure the modal is on top */
+       }
+       
+        .MuiRating-icon {
+          font-size: 2.5rem; // Adjust the size to make the stars larger
+        }
+
+        .MuiRating-iconFilled {
+          color: #fead3d; // Change the filled star color to yellow
+        }
+
+       .modal-content {
+         background: themed("bg");
+         padding: 20px;
+         border-radius: 8px;
+         width: 500px; /* Adjust modal width as needed */
+         max-width: 90%;
+         position: relative;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+         z-index: 10000; /* Ensure the content is above the backdrop */
+       }
+   
+       .close-modal {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         background: transparent;
+         border: none;
+         font-size: 18px;
+         cursor: pointer;
+       }
+   
+       .review-form {
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+   
+         .title {
+           font-size: 1.8rem;
+           color: themed("textColor"); /* Apply the correct themed color */
+           margin-bottom: 10px;
+           text-align: center; /* Center the title if desired */
+         }
+   
+         label {
+           font-size: 14px;
+           color: themed("textColor");
+         }
+   
+         select,
+         input,
+         textarea {
+           width: 100%;
+           padding: 10px;
+           border: 1px solid themed("border");
+           border-radius: 4px;
+           background-color: themed("bg");
+           color: themed("textColor");
+           font-size: 14px;
+         }
+   
+         textarea {
+           min-height: 100px;
+           resize: vertical;
+         }
+   
+         button {
+           padding: 10px;
+           background-color: themed("btn");
+           color: white;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           font-size: 14px;
+           transition: background-color 0.3s ease;
+   
+           &:hover {
+             background-color: darken(themed("btn"), 10%);
+           }
+         }
+       }
+     }
+   }
+   
